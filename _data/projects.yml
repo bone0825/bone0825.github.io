@@ -18,6 +18,21 @@
   stack: ["Snowflake", "Cortex Search", "Cortex Analyst", "Streamlit"]
   link: ""
 
+- name: "글로벌 커머스 AI 에이전트 운영 · 고도화"
+  period: "2026.07 – 진행 중"
+  role: "기술 대응 · 에이전트 튜닝"
+  description: >-
+    수천 명이 매일 쓰는 사내 AI 분석 에이전트를 운영하며,
+    잘못된 답이 나오는 원인을 찾아 지시문과 도구 구성을 고쳐 나가고 있습니다.
+    LLM은 "틀렸다"고 알려주지 않기 때문에, 오답의 경로를 역추적하는 일이 대부분입니다.
+  highlights:
+    - "모델이 학습한 잘못된 코드값을 그대로 답하던 문제 — 마스터 테이블 조회를 필수 단계로 승격해 차단"
+    - "검색이 엉뚱한 소스로 새던 문제 — 주제별 1·2차 소스와 웹검색 폴백을 3단계 규칙으로 정립"
+    - "자동화 경로에서만 접근 제한 규칙이 우회되던 문제 — 실행 전 검증 게이트를 별도 스킬로 개발해 차단"
+    - "에이전트가 과거 버전의 파일을 참조하던 원인을 저장 방식 차이로 규명"
+  stack: ["Snowflake", "Cortex Agent", "LLM", "SQL"]
+  link: ""
+
 - name: "LLM 추론 비용 폭증 원인 분석"
   period: "2026.07"
   role: "원인 분석 · 구조 개선"
@@ -96,3 +111,4 @@
     - "Markdown 작성 후 push 하면 자동 배포"
   stack: ["Jekyll", "GitHub Pages"]
   link: "https://github.com/bone0825/bone0825.github.io"
+
