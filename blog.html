@@ -1,0 +1,44 @@
+---
+layout: default
+title: 글
+permalink: /blog/
+nav_order: 1
+---
+
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">글</h1>
+    <p class="page-subtitle">총 {{ site.posts.size }}개의 글</p>
+  </header>
+
+  {%- if site.categories.size > 0 -%}
+    <div class="filter-row">
+      <span class="filter-label">카테고리</span>
+      {%- for cat in site.categories -%}
+        <span class="tag">{{ cat[0] }} <em>{{ cat[1].size }}</em></span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if site.posts.size > 0 -%}
+    {%- assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+    {%- for year in posts_by_year -%}
+      <section class="year-block">
+        <h2 class="year-title">{{ year.name }}</h2>
+        <ul class="post-list">
+          {%- for post in year.items -%}
+            <li class="post-list-item">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              {%- if post.categories.size > 0 -%}
+                <span class="post-list-cat">{{ post.categories | first }}</span>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </section>
+    {%- endfor -%}
+  {%- else -%}
+    <p class="empty">아직 작성된 글이 없습니다.</p>
+  {%- endif -%}
+</div>

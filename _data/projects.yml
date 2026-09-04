@@ -1,0 +1,37 @@
+# 포트폴리오에 표시될 프로젝트 목록입니다.
+# 아래 형식대로 항목을 추가/수정하면 /portfolio/ 페이지에 자동 반영됩니다.
+
+- name: "Snowflake 기반 데이터 플랫폼 구축"
+  period: "2025.01 – 진행 중"
+  role: "데이터 엔지니어링 / 아키텍처 설계"
+  description: >-
+    분산되어 있던 데이터 소스를 Snowflake 로 통합하고,
+    분석팀이 바로 쓸 수 있는 데이터 마트 계층을 설계했습니다.
+  highlights:
+    - "적재 파이프라인 자동화로 일일 수작업 제거"
+    - "쿼리 비용 모니터링 체계 도입"
+  stack: ["Snowflake", "SQL", "Python"]
+  link: ""
+
+- name: "리포트 자동 생성 도구"
+  period: "2025.06 – 2025.09"
+  role: "기획 · 개발"
+  description: >-
+    반복적으로 만들던 보고서를 템플릿화해서
+    데이터만 넣으면 문서가 나오도록 자동화했습니다.
+  highlights:
+    - "보고서 작성 시간 대폭 단축"
+    - "산출물 양식 표준화"
+  stack: ["Python", "python-pptx"]
+  link: ""
+
+- name: "이 블로그"
+  period: "2026.09 –"
+  role: "제작"
+  description: >-
+    Jekyll 과 GitHub Pages 로 만든 개인 기술 블로그 겸 포트폴리오 사이트입니다.
+  highlights:
+    - "테마 의존성 없이 직접 레이아웃 구성"
+    - "Markdown 으로 글 작성 · push 하면 자동 배포"
+  stack: ["Jekyll", "GitHub Pages"]
+  link: ""

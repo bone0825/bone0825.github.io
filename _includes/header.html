@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">{{ site.title }}</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav">
+      {%- assign nav_pages = site.pages | where_exp: "p", "p.nav_order" | sort: "nav_order" -%}
+      {%- for p in nav_pages -%}
+        <a href="{{ p.url | relative_url }}"
+           class="{% if page.url == p.url %}active{% endif %}">{{ p.title }}</a>
+      {%- endfor -%}
+    </nav>
+  </div>
+</header>

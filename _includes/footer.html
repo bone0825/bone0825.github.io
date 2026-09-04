@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-name">{{ site.author.name }}</p>
+    <p class="footer-links">
+      {%- if site.social.github -%}
+        <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
+      {%- endif -%}
+      {%- if site.social.linkedin and site.social.linkedin != "" -%}
+        <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      {%- endif -%}
+      {%- if site.social.email -%}
+        <a href="mailto:{{ site.social.email }}">Email</a>
+      {%- endif -%}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </p>
+    <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. Built with Jekyll &amp; GitHub Pages.</p>
+  </div>
+</footer>

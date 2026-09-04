@@ -1,0 +1,59 @@
+# ─────────────────────────────────────────────
+#  사이트 기본 정보 — 여기만 고치면 전체에 반영돼
+# ─────────────────────────────────────────────
+title: "병일의 기술 블로그"
+tagline: "데이터 · Snowflake · 그리고 만드는 것들"
+description: >-
+  데이터 엔지니어링, Snowflake, AI 활용에 대해 기록하고
+  만든 것들을 모아두는 공간입니다.
+
+author:
+  name: "병일"
+  email: "quddlf775@gmail.com"
+
+# GitHub Pages 주소 (username 을 본인 GitHub 아이디로 바꿔주세요)
+url: "https://YOUR_USERNAME.github.io"
+baseurl: ""          # username.github.io 저장소면 빈 값 그대로 두세요
+
+# 헤더/푸터에 표시되는 링크
+social:
+  github: "YOUR_USERNAME"
+  email: "quddlf775@gmail.com"
+  linkedin: ""        # 없으면 비워두세요
+
+# ─────────────────────────────────────────────
+#  Jekyll 설정 (건드릴 일 거의 없음)
+# ─────────────────────────────────────────────
+lang: ko-KR
+timezone: Asia/Seoul
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
