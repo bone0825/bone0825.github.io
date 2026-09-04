@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "대화에선 막히는 규칙이, 자동화에선 뚫렸다"
+title: "Cortex Agent — Instruction과 Automation의 지시 우선순위"
 date: 2026-09-04 11:00:00 +0900
 categories: [기술, Snowflake]
 tags: [LLM, AI Agent, Cortex, 프롬프트]
-summary: "에이전트에 접근 제한 규칙을 걸어뒀는데 정기 실행 작업에서만 우회됐습니다. 규칙이 약해서가 아니라, 지시의 우선순위 때문이었습니다."
+summary: "Instruction에 걸어둔 접근 제한 규칙이 Automation 경로에서만 우회됐습니다. 규칙 강도가 아니라 시스템 규칙과 명시적 Task 지시의 우선순위 문제였고, Validation Skill로 해결했습니다."
 ---
 
 운영 중인 분석 에이전트에 이런 규칙이 걸려 있었습니다.
