@@ -1,15 +1,15 @@
 # ─────────────────────────────────────────────
 #  사이트 기본 정보 — 여기만 고치면 전체에 반영돼
 # ─────────────────────────────────────────────
-title: "병일의 기술 블로그"
-tagline: "데이터 · Snowflake · 그리고 만드는 것들"
+title: "김병일 | 데이터 인프라"
+tagline: "Snowflake · 데이터 파이프라인 · AI"
 description: >-
-  데이터 엔지니어링, Snowflake, AI 활용에 대해 기록하고
-  만든 것들을 모아두는 공간입니다.
+  데이터 인프라 엔지니어. Snowflake 기반 플랫폼과 AI Agent를 만들고,
+  틀렸던 판단과 그걸 고친 과정을 기록합니다.
 
 author:
-  name: "병일"
-  email: "quddlf775@gmail.com"
+  name: "김병일"
+  email: ""          # 공개 노출 원하면 여기에 (public 저장소라 크롤링됩니다)
 
 # GitHub Pages 주소 (username 을 본인 GitHub 아이디로 바꿔주세요)
 url: "https://bone0825.github.io"
@@ -18,7 +18,7 @@ baseurl: ""          # username.github.io 저장소면 빈 값 그대로 두세�
 # 헤더/푸터에 표시되는 링크
 social:
   github: "bone0825"
-  email: "quddlf775@gmail.com"
+  email: ""           # 비워두면 푸터에 이메일 링크가 안 나옵니다
   linkedin: ""        # 없으면 비워두세요
 
 # ─────────────────────────────────────────────
