@@ -45,16 +45,22 @@ title: 홈
       <a class="section-more" href="{{ '/portfolio/' | relative_url }}">전체 보기 →</a>
     </div>
 
+    {%- comment -%} projects.yml 에서 featured: true 인 항목만 노출 {%- endcomment -%}
     <div class="project-grid">
-      {%- for project in site.data.projects limit: 3 -%}
-        <div class="project-card">
-          <div class="project-period">{{ project.period }}</div>
-          <h3 class="project-name">{{ project.name }}</h3>
-          <p class="project-desc">{{ project.description }}</p>
-          <div class="tag-row">
-            {%- for t in project.stack -%}<span class="tag">{{ t }}</span>{%- endfor -%}
-          </div>
-        </div>
+      {%- for g in site.data.projects -%}
+        {%- for project in g.items -%}
+          {%- if project.featured -%}
+            <div class="project-card">
+              <div class="project-period">{{ project.period }}</div>
+              <h3 class="project-name">{{ project.name }}</h3>
+              <p class="project-desc">{{ project.description | truncate: 110 }}</p>
+              <div class="tag-row">
+                {%- for t in project.stack -%}<span class="tag">{{ t }}</span>{%- endfor -%}
+              </div>
+              <div class="project-group">{{ g.group }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
       {%- endfor -%}
     </div>
   </div>

@@ -8,34 +8,62 @@ nav_order: 4
 <div class="wrap">
   <header class="page-head">
     <h1 class="page-title">포트폴리오</h1>
-    <p class="page-subtitle">진행했던 프로젝트와 만든 것들</p>
+    <p class="page-subtitle">
+      {%- assign total = 0 -%}
+      {%- for g in site.data.projects -%}{%- assign total = total | plus: g.items.size -%}{%- endfor -%}
+      {{ site.data.projects.size }}개 영역 · {{ total }}개 프로젝트
+    </p>
   </header>
 
   {%- if site.data.projects.size > 0 -%}
-    <div class="project-grid">
-      {%- for project in site.data.projects -%}
-        <div class="project-card">
-          <div class="project-period">{{ project.period }}</div>
-          <h3 class="project-name">{{ project.name }}</h3>
-          <p class="project-role">{{ project.role }}</p>
-          <p class="project-desc">{{ project.description }}</p>
 
-          {%- if project.highlights.size > 0 -%}
-            <ul class="project-highlights">
-              {%- for h in project.highlights -%}<li>{{ h }}</li>{%- endfor -%}
-            </ul>
-          {%- endif -%}
-
-          <div class="tag-row">
-            {%- for t in project.stack -%}<span class="tag">{{ t }}</span>{%- endfor -%}
-          </div>
-
-          {%- if project.link and project.link != "" -%}
-            <a class="project-link" href="{{ project.link }}" target="_blank" rel="noopener">자세히 보기 →</a>
-          {%- endif -%}
-        </div>
+    <div class="filter-row">
+      <span class="filter-label">영역</span>
+      {%- for g in site.data.projects -%}
+        <a class="tag tag-link" href="#grp-{{ g.group | slugify }}">
+          {{ g.group }} <em>{{ g.items.size }}</em>
+        </a>
       {%- endfor -%}
     </div>
+
+    {%- for g in site.data.projects -%}
+      <section class="cat-block" id="grp-{{ g.group | slugify }}">
+        <h2 class="cat-title">
+          {{ g.group }}<span class="tag-count">{{ g.items.size }}</span>
+        </h2>
+        {%- if g.blurb -%}<p class="group-blurb">{{ g.blurb }}</p>{%- endif -%}
+
+        <div class="project-grid">
+          {%- for project in g.items -%}
+            <div class="project-card">
+              <div class="project-period">{{ project.period }}</div>
+              <h3 class="project-name">{{ project.name }}</h3>
+              <p class="project-role">{{ project.role }}</p>
+              <p class="project-desc">{{ project.description }}</p>
+
+              {%- if project.highlights.size > 0 -%}
+                <ul class="project-highlights">
+                  {%- for h in project.highlights -%}<li>{{ h }}</li>{%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              <div class="tag-row">
+                {%- for t in project.stack -%}<span class="tag">{{ t }}</span>{%- endfor -%}
+              </div>
+
+              {%- if project.link and project.link != "" -%}
+                {%- if project.link contains "http" -%}
+                  <a class="project-link" href="{{ project.link }}" target="_blank" rel="noopener">자세히 보기 →</a>
+                {%- else -%}
+                  <a class="project-link" href="{{ project.link | relative_url }}">관련 글 읽기 →</a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </section>
+    {%- endfor -%}
+
   {%- else -%}
     <p class="empty"><code>_data/projects.yml</code> 에 프로젝트를 추가하면 여기에 표시됩니다.</p>
   {%- endif -%}

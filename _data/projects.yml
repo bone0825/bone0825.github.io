@@ -1,114 +1,133 @@
-# 포트폴리오 항목. /portfolio/ 와 홈에 자동 반영됩니다.
+# 포트폴리오 — 영역(group)별로 묶어서 표시합니다.
 #
 # ⚠️ 이 저장소는 PUBLIC 입니다.
 #    고객사명 · DB/스키마/객체명 · 계정 식별자 · 실명 · 정확한 데이터 규모는
 #    절대 여기에 쓰지 마세요. 문제 유형과 접근 방식까지만.
+#
+# 구조:  group(영역) → items(프로젝트 목록)
+#   - 위에 쓴 group 이 위에 표시됩니다 (순서 = 우선순위)
+#   - items 에 featured: true 를 달면 홈 화면 "주요 프로젝트" 에 노출됩니다
 
-- name: "도메인별 AI Agent 플랫폼 구축"
-  period: "2026.01 – 진행 중"
-  role: "데이터 인프라 · 아키텍처 설계"
-  description: >-
-    건설 도메인 고객사를 대상으로, 업무 영역마다 전용 AI Agent 를 두는
-    Snowflake 기반 플랫폼을 구축했습니다. 하나의 거대 에이전트 대신
-    도메인 수직 분할 구조를 택했습니다.
-  highlights:
-    - "비정형 문서는 RAG, 정형 데이터는 text-to-SQL 로 검색 패러다임 분리"
-    - "도메인별 웨어하우스·모델 분리로 워크로드에 맞춰 비용 최적화"
-    - "전 에이전트 운영/개발 환경 분리 규율 적용"
-  stack: ["Snowflake", "Cortex Search", "Cortex Analyst", "Streamlit"]
-  link: ""
+- group: "Snowflake · AI 플랫폼"
+  blurb: "Cortex 기반 AI Agent 플랫폼을 설계하고, 운영하며 생기는 문제를 추적합니다."
+  items:
 
-- name: "글로벌 커머스 AI 에이전트 운영 · 고도화"
-  period: "2026.07 – 진행 중"
-  role: "기술 대응 · 에이전트 튜닝"
-  description: >-
-    수천 명이 매일 쓰는 사내 AI 분석 에이전트를 운영하며,
-    잘못된 답이 나오는 원인을 찾아 지시문과 도구 구성을 고쳐 나가고 있습니다.
-    LLM은 "틀렸다"고 알려주지 않기 때문에, 오답의 경로를 역추적하는 일이 대부분입니다.
-  highlights:
-    - "모델이 학습한 잘못된 코드값을 그대로 답하던 문제 — 마스터 테이블 조회를 필수 단계로 승격해 차단"
-    - "검색이 엉뚱한 소스로 새던 문제 — 주제별 1·2차 소스와 웹검색 폴백을 3단계 규칙으로 정립"
-    - "자동화 경로에서만 접근 제한 규칙이 우회되던 문제 — 실행 전 검증 게이트를 별도 스킬로 개발해 차단"
-    - "에이전트가 과거 버전의 파일을 참조하던 원인을 저장 방식 차이로 규명"
-  stack: ["Snowflake", "Cortex Agent", "LLM", "SQL"]
-  link: ""
+    - name: "도메인별 AI Agent 플랫폼 구축"
+      period: "2026.01 – 진행 중"
+      role: "데이터 인프라 · 아키텍처 설계"
+      featured: true
+      description: >-
+        건설 도메인 고객사를 대상으로, 업무 영역마다 전용 AI Agent 를 두는
+        Snowflake 기반 플랫폼을 구축했습니다. 하나의 거대 에이전트 대신
+        도메인 수직 분할 구조를 택했습니다.
+      highlights:
+        - "비정형 문서는 RAG, 정형 데이터는 text-to-SQL 로 검색 패러다임 분리"
+        - "도메인별 웨어하우스·모델 분리로 워크로드에 맞춰 비용 최적화"
+        - "전 에이전트 운영/개발 환경 분리 규율 적용"
+      stack: ["Snowflake", "Cortex Search", "Cortex Analyst", "Streamlit"]
+      link: ""
 
-- name: "LLM 추론 비용 폭증 원인 분석"
-  period: "2026.07"
-  role: "원인 분석 · 구조 개선"
-  description: >-
-    운영 중이던 AI 서비스의 크레딧 사용량이 급증했습니다.
-    처음엔 호출 횟수 증가로 결론냈지만 실제 호출 이력과 맞지 않았고,
-    다시 파고들어 진짜 원인을 찾았습니다.
-  highlights:
-    - "뷰 정의 안에 LLM 함수가 내장돼 있어 단순 조회만으로 과금되는 구조를 발견"
-    - "뷰를 테이블로 materialize 해 조회 비용을 제거"
-    - "초기 결론이 틀렸다는 걸 확인하고 문서를 되돌린 과정 자체가 배움이었음"
-  stack: ["Snowflake", "SQL", "비용 분석"]
-  link: ""
+    - name: "글로벌 커머스 AI 에이전트 운영 · 고도화"
+      period: "2026.07 – 진행 중"
+      role: "기술 대응 · 에이전트 튜닝"
+      featured: true
+      description: >-
+        수천 명이 매일 쓰는 사내 AI 분석 에이전트를 운영하며,
+        잘못된 답이 나오는 원인을 찾아 지시문과 도구 구성을 고쳐 나가고 있습니다.
+        LLM은 "틀렸다"고 알려주지 않기 때문에, 오답의 경로를 역추적하는 일이 대부분입니다.
+      highlights:
+        - "모델이 학습한 잘못된 코드값을 그대로 답하던 문제 — 마스터 테이블 조회를 필수 단계로 승격해 차단"
+        - "검색이 엉뚱한 소스로 새던 문제 — 주제별 1·2차 소스와 웹검색 폴백을 3단계 규칙으로 정립"
+        - "자동화 경로에서만 접근 제한 규칙이 우회되던 문제 — 실행 전 검증 게이트를 별도 스킬로 개발해 차단"
+        - "에이전트가 과거 버전의 파일을 참조하던 원인을 저장 방식 차이로 규명"
+      stack: ["Snowflake", "Cortex Agent", "LLM", "SQL"]
+      link: "/posts/agent-rule-bypass-in-automation/"
 
-- name: "AI Agent 전면 장애 원인 규명"
-  period: "2026.07"
-  role: "장애 분석"
-  description: >-
-    특정 시점부터 에이전트가 초기화 단계에서 죽는 장애가 발생했습니다.
-    선행 보고서는 플랫폼 전면 장애로 결론냈지만,
-    같은 시간대에 정상 동작한 에이전트가 있었습니다.
-  highlights:
-    - "정상 대조군을 찾아 '전부 안 됨'이라는 전제를 먼저 무너뜨림"
-    - "특정 도구를 쓰는 에이전트만 실패한다는 공통점으로 범위 축소"
-    - "결론을 의심하는 게 아니라 결론을 깨는 반례를 찾는 방식"
-  stack: ["Snowflake", "장애 분석", "로그 분석"]
-  link: ""
+    - name: "LLM 추론 비용 폭증 원인 분석"
+      period: "2026.07"
+      role: "원인 분석 · 구조 개선"
+      featured: true
+      description: >-
+        운영 중이던 AI 서비스의 크레딧 사용량이 급증했습니다.
+        처음엔 호출 횟수 증가로 결론냈지만 실제 호출 이력과 맞지 않았고,
+        다시 파고들어 진짜 원인을 찾았습니다.
+      highlights:
+        - "뷰 정의 안에 LLM 함수가 내장돼 있어 단순 조회만으로 과금되는 구조를 발견"
+        - "뷰를 테이블로 materialize 해 조회 비용을 제거"
+        - "초기 결론이 틀렸다는 걸 확인하고 문서를 되돌린 과정 자체가 배움이었음"
+      stack: ["Snowflake", "SQL", "비용 분석"]
+      link: ""
 
-- name: "Agent 접근권한 RBAC 재설계"
-  period: "2026.06 – 2026.07"
-  role: "설계 · 검증 · 적용 계획"
-  description: >-
-    애플리케이션 코드에 하드코딩돼 있던 사용자 명단을
-    테이블 기반 역할 계층으로 전환하는 작업입니다.
-    수십 명의 실제 접근 권한이 걸린 변경이라 검증에 가장 오래 매달렸습니다.
-  highlights:
-    - "역할 상속 계층 설계로 명단 관리 자체를 제거"
-    - "적용 전후 권한 차집합을 대조해 '권한을 잃는 사람 0명' 을 사전 증명"
-    - "운영 중단 없이 넘어가는 단계별 컷오버 계획 수립"
-  stack: ["Snowflake", "RBAC", "SQL"]
-  link: ""
+    - name: "AI Agent 전면 장애 원인 규명"
+      period: "2026.07"
+      role: "장애 분석"
+      description: >-
+        특정 시점부터 에이전트가 초기화 단계에서 죽는 장애가 발생했습니다.
+        선행 보고서는 플랫폼 전면 장애로 결론냈지만,
+        같은 시간대에 정상 동작한 에이전트가 있었습니다.
+      highlights:
+        - "정상 대조군을 찾아 '전부 안 됨'이라는 전제를 먼저 무너뜨림"
+        - "특정 도구를 쓰는 에이전트만 실패한다는 공통점으로 범위 축소"
+        - "결론을 의심하는 게 아니라 결론을 깨는 반례를 찾는 방식"
+      stack: ["Snowflake", "장애 분석", "로그 분석"]
+      link: ""
 
-- name: "산출물 자동 생성 도구"
-  period: "2026.06 –"
-  role: "기획 · 개발"
-  description: >-
-    프로젝트마다 반복해서 만들던 보고서·가이드 PPT 를
-    코드로 생성하도록 만든 사내 도구입니다. 특정 프로젝트 전용이 아니라
-    양식만 바꿔 재사용하는 구조로 설계했습니다.
-  highlights:
-    - "반복 요소는 슬라이드 마스터에 두고 상속시켜 장표마다 그리지 않도록"
-    - "cover / section / bullets / table / pipeline 등 블록 단위 API"
-    - "가이드 문서 제작 시간을 대폭 단축"
-  stack: ["Python", "python-pptx"]
-  link: ""
+    - name: "Agent 접근권한 RBAC 재설계"
+      period: "2026.06 – 2026.07"
+      role: "설계 · 검증 · 적용 계획"
+      description: >-
+        애플리케이션 코드에 하드코딩돼 있던 사용자 명단을
+        테이블 기반 역할 계층으로 전환하는 작업입니다.
+        수십 명의 실제 접근 권한이 걸린 변경이라 검증에 가장 오래 매달렸습니다.
+      highlights:
+        - "역할 상속 계층 설계로 명단 관리 자체를 제거"
+        - "적용 전후 권한 차집합을 대조해 '권한을 잃는 사람 0명' 을 사전 증명"
+        - "운영 중단 없이 넘어가는 단계별 컷오버 계획 수립"
+      stack: ["Snowflake", "RBAC", "SQL"]
+      link: ""
 
-- name: "Oracle CDC 복제 운영"
-  period: "상시"
-  role: "운영 · 트러블슈팅"
-  description: >-
-    SharePlex 기반 Oracle 실시간 복제 환경을 운영하며
-    Capture 중단, 아카이브 로그 오류, 제약조건 위반 등을 처리했습니다.
-  highlights:
-    - "SCN 기반 복구 절차 정리"
-    - "부분 재적재와 전체 재적재 시나리오 구분 — reconcile 은 큐 단위라는 원칙"
-  stack: ["Oracle", "SharePlex", "CDC"]
-  link: ""
+- group: "데이터 복제 · 파이프라인"
+  blurb: "실시간 복제 환경을 운영하며 끊긴 지점을 복구합니다."
+  items:
 
-- name: "이 블로그"
-  period: "2026.09 –"
-  role: "제작"
-  description: >-
-    Jekyll 과 GitHub Pages 로 만든 개인 기술 블로그 겸 포트폴리오입니다.
-  highlights:
-    - "외부 테마 의존 없이 레이아웃 직접 구성"
-    - "Markdown 작성 후 push 하면 자동 배포"
-  stack: ["Jekyll", "GitHub Pages"]
-  link: "https://github.com/bone0825/bone0825.github.io"
+    - name: "Oracle CDC 복제 운영"
+      period: "상시"
+      role: "운영 · 트러블슈팅"
+      featured: true
+      description: >-
+        SharePlex 기반 Oracle 실시간 복제 환경을 운영하며
+        Capture 중단, 아카이브 로그 오류, 제약조건 위반 등을 처리했습니다.
+      highlights:
+        - "SCN 기반 복구 절차 정리"
+        - "부분 재적재와 전체 재적재 시나리오 구분 — reconcile 은 큐 단위라는 원칙"
+      stack: ["Oracle", "SharePlex", "CDC"]
+      link: ""
 
+- group: "도구 · 사이드 프로젝트"
+  blurb: "반복되는 일을 코드로 옮기거나, 그냥 만들고 싶어서 만든 것들."
+  items:
+
+    - name: "산출물 자동 생성 도구"
+      period: "2026.06 –"
+      role: "기획 · 개발"
+      description: >-
+        프로젝트마다 반복해서 만들던 보고서·가이드 PPT 를
+        코드로 생성하도록 만든 사내 도구입니다. 특정 프로젝트 전용이 아니라
+        양식만 바꿔 재사용하는 구조로 설계했습니다.
+      highlights:
+        - "반복 요소는 슬라이드 마스터에 두고 상속시켜 장표마다 그리지 않도록"
+        - "cover / section / bullets / table / pipeline 등 블록 단위 API"
+        - "가이드 문서 제작 시간을 대폭 단축"
+      stack: ["Python", "python-pptx"]
+      link: ""
+
+    - name: "이 블로그"
+      period: "2026.09 –"
+      role: "제작"
+      description: >-
+        Jekyll 과 GitHub Pages 로 만든 개인 기술 블로그 겸 포트폴리오입니다.
+      highlights:
+        - "외부 테마 의존 없이 레이아웃 직접 구성"
+        - "Markdown 작성 후 push 하면 자동 배포"
+      stack: ["Jekyll", "GitHub Pages"]
+      link: "https://github.com/bone0825/bone0825.github.io"
