@@ -108,8 +108,9 @@
     var ymd = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
     var hm  = p(d.getHours()) + ':' + p(d.getMinutes());
 
-    // 파일명 slug 는 GitHub 편집기에서 직접 고치도록 비워둡니다.
-    var filename = '_posts/' + ymd + '-.md';
+    // slug 는 GitHub 편집기에서 고쳐 쓰지만, 안 고치고 커밋해도 주소가
+    // /posts/ 로 깨지지 않도록 기본값을 넣어둡니다. (실제로 그런 일이 있었음)
+    var filename = '_posts/' + ymd + '-new-post.md';
 
     // 시각을 '지금'으로 넣습니다. 미래 날짜면 Jekyll 이 글을 건너뛰기 때문입니다.
     var template = [
