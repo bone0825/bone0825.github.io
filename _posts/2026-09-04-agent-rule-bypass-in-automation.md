@@ -2,7 +2,7 @@
 layout: post
 title: "대화에선 막히는 규칙이, 자동화에선 뚫렸다"
 date: 2026-09-04 11:00:00 +0900
-categories: [Snowflake]
+categories: [기술, Snowflake]
 tags: [LLM, AI Agent, Cortex, 프롬프트]
 summary: "에이전트에 접근 제한 규칙을 걸어뒀는데 정기 실행 작업에서만 우회됐습니다. 규칙이 약해서가 아니라, 지시의 우선순위 때문이었습니다."
 ---

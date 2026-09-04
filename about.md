@@ -3,7 +3,7 @@ layout: page
 title: 소개
 subtitle: 데이터 인프라 엔지니어
 permalink: /about/
-nav_order: 3
+nav_order: 5
 ---
 
 ## 김병일

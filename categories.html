@@ -1,0 +1,58 @@
+---
+layout: default
+title: 카테고리
+permalink: /categories/
+nav_order: 2
+---
+
+{%- comment -%}
+  대분류(categories[0]) 로 묶고, 그 안에서 소분류(categories[1]) 로 다시 묶습니다.
+  예: 기술 › Snowflake / 기술 › Jekyll
+{%- endcomment -%}
+
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">카테고리</h1>
+    <p class="page-subtitle">{{ site.posts.size }}개의 글</p>
+  </header>
+
+  {%- if site.posts.size > 0 -%}
+    {%- assign majors = site.posts | group_by_exp: "p", "p.categories[0]" | sort: "name" -%}
+
+    <div class="filter-row">
+      <span class="filter-label">바로가기</span>
+      {%- for major in majors -%}
+        <a class="tag tag-link" href="#cat-{{ major.name | slugify }}">
+          {{ major.name }} <em>{{ major.items.size }}</em>
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- for major in majors -%}
+      <section class="cat-block" id="cat-{{ major.name | slugify }}">
+        <h2 class="cat-title">
+          {{ major.name }}<span class="tag-count">{{ major.items.size }}</span>
+        </h2>
+
+        {%- assign subs = major.items | group_by_exp: "p", "p.categories[1]" | sort: "name" -%}
+        {%- for sub in subs -%}
+          <div class="sub-block" id="sub-{{ major.name | slugify }}-{{ sub.name | slugify }}">
+            {%- if sub.name and sub.name != "" -%}
+              <h3 class="sub-title">› {{ sub.name }} <span class="tag-count">{{ sub.items.size }}</span></h3>
+            {%- endif -%}
+            <ul class="post-list">
+              {%- for post in sub.items -%}
+                <li class="post-list-item">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%y.%m.%d" }}</time>
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </section>
+    {%- endfor -%}
+  {%- else -%}
+    <p class="empty">아직 글이 없습니다.</p>
+  {%- endif -%}
+</div>

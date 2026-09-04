@@ -1,0 +1,15 @@
+{%- comment -%}
+  카테고리 표시 — 대분류 › 소분류 (2단계)
+  사용: {% include category.html post=post %}
+  categories: [기술, Snowflake] → 기술 › Snowflake
+{%- endcomment -%}
+{%- assign cats = include.post.categories -%}
+{%- if cats.size > 0 -%}
+  <span class="cat">
+    <a href="{{ '/categories/' | relative_url }}#cat-{{ cats[0] | slugify }}">{{ cats[0] }}</a>
+    {%- if cats.size > 1 -%}
+      <span class="cat-sep">›</span>
+      <a href="{{ '/categories/' | relative_url }}#sub-{{ cats[0] | slugify }}-{{ cats[1] | slugify }}">{{ cats[1] }}</a>
+    {%- endif -%}
+  </span>
+{%- endif -%}

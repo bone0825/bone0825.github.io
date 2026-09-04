@@ -2,7 +2,7 @@
 layout: post
 title: "블로그를 시작하며 — 글 쓰는 방법 정리"
 date: 2026-09-04 10:00:00 +0900
-categories: [기록]
+categories: [기술, Jekyll]
 tags: [Jekyll, GitHub Pages, 블로그]
 summary: "Jekyll + GitHub Pages 로 블로그를 열었습니다. 앞으로 글을 어떻게 추가하면 되는지 정리해둡니다."
 ---

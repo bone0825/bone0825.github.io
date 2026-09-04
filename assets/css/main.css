@@ -327,6 +327,24 @@ a.tag-link:hover {
 /* 앵커로 이동했을 때 sticky 헤더에 가리지 않도록 */
 [id^="tag-"], .prose h2[id], .prose h3[id] { scroll-margin-top: 80px; }
 
+/* ---------- 카테고리 (대분류 › 소분류) ---------- */
+.cat a { color: inherit; }
+.cat a:hover { color: var(--accent); text-decoration: none; }
+.cat-sep { margin: 0 5px; color: var(--text-mute); }
+
+.cat-block { padding: 34px 0 4px; }
+.cat-title {
+  margin: 0 0 6px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  font-size: 20px; font-weight: 800; letter-spacing: -.02em;
+}
+.sub-block { padding-top: 14px; }
+.sub-title {
+  margin: 0 0 4px; font-size: 14.5px; font-weight: 700; color: var(--text-soft);
+}
+.cat-title .tag-count, .sub-title .tag-count { font-weight: 600; }
+[id^="cat-"], [id^="sub-"] { scroll-margin-top: 80px; }
+
 /* ---------- 목차 ---------- */
 .toc {
   margin: 0 0 36px; padding: 18px 22px;

@@ -9,7 +9,7 @@ layout: default
     <div class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
       {%- if page.categories.size > 0 -%}
-        <span class="dot">·</span><span>{{ page.categories | first }}</span>
+        <span class="dot">·</span>{% include category.html post=page %}
       {%- endif -%}
       <span class="dot">·</span><span>{{ minutes }}분 읽기</span>
     </div>
