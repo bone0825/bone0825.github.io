@@ -84,7 +84,7 @@
         - "적용 전후 권한 차집합을 대조해 '권한을 잃는 사람 0명' 을 사전 증명"
         - "운영 중단 없이 넘어가는 단계별 컷오버 계획 수립"
       stack: ["Snowflake", "RBAC", "SQL"]
-      link: ""
+      link: "/posts/role-mapping-and-grant-sync/"
 
 - group: "데이터 복제 · 파이프라인"
   blurb: "실시간 복제 환경을 운영하며 끊긴 지점을 복구합니다."
