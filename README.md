@@ -10,9 +10,9 @@ GitHub 에 `push` 하면 자동으로 빌드·배포됩니다.
 ### 1-1. GitHub 에서 저장소 만들기
 
 1. https://github.com/new 접속
-2. **Repository name** 에 `본인아이디.github.io` 입력
-   - 예: 아이디가 `byungil` 이면 → `byungil.github.io`
-   - 이 이름으로 만들면 주소가 `https://byungil.github.io` 가 됩니다
+2. **Repository name** 에 정확히 `bone0825.github.io` 입력
+   - 이 이름이어야 주소가 `https://bone0825.github.io` 가 됩니다
+   - 오타가 있으면 Pages 가 동작하지 않습니다
 3. **Public** 선택
 4. README / .gitignore / license 는 **체크하지 않음** (이미 있음)
 5. **Create repository** 클릭
@@ -26,7 +26,7 @@ git init
 git add .
 git commit -m "블로그 첫 배포"
 git branch -M main
-git remote add origin https://github.com/본인아이디/본인아이디.github.io.git
+git remote add origin https://github.com/bone0825/bone0825.github.io.git
 git push -u origin main
 ```
 
@@ -37,7 +37,7 @@ git push -u origin main
 1. 저장소 → **Settings** → 왼쪽 메뉴 **Pages**
 2. **Source** 를 `Deploy from a branch` 로
 3. **Branch** 를 `main` / `/ (root)` 로 지정 후 **Save**
-4. 1~2분 뒤 `https://본인아이디.github.io` 접속
+4. 1~2분 뒤 `https://bone0825.github.io` 접속
 
 ---
 
@@ -47,9 +47,9 @@ git push -u origin main
 
 ```yaml
 title: "블로그 이름"
-url: "https://본인아이디.github.io"   # ← 반드시 본인 아이디로
+url: "https://bone0825.github.io"
 social:
-  github: "본인아이디"
+  github: "bone0825"
 ```
 
 > `_config.yml` 을 수정하면 로컬 서버는 **재시작**해야 반영됩니다.

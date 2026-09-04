@@ -12,12 +12,12 @@ author:
   email: "quddlf775@gmail.com"
 
 # GitHub Pages 주소 (username 을 본인 GitHub 아이디로 바꿔주세요)
-url: "https://YOUR_USERNAME.github.io"
+url: "https://bone0825.github.io"
 baseurl: ""          # username.github.io 저장소면 빈 값 그대로 두세요
 
 # 헤더/푸터에 표시되는 링크
 social:
-  github: "YOUR_USERNAME"
+  github: "bone0825"
   email: "quddlf775@gmail.com"
   linkedin: ""        # 없으면 비워두세요
 
