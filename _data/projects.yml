@@ -56,7 +56,7 @@
         - "뷰를 테이블로 materialize 해 조회 비용을 제거"
         - "초기 결론이 틀렸다는 걸 확인하고 문서를 되돌린 과정 자체가 배움이었음"
       stack: ["Snowflake", "SQL", "비용 분석"]
-      link: ""
+      link: "/posts/llm-function-inside-view-definition/"
 
     - name: "AI Agent 전면 장애 원인 규명"
       period: "2026.07"
