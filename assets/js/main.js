@@ -97,7 +97,45 @@
     });
   }
 
-  function init() { buildToc(); addCopyButtons(); }
+  /* ---------- 3. "새 글 쓰기" 링크에 오늘 날짜 + 템플릿 채우기 ---------- */
+  function setupNewPost() {
+    var a = document.getElementById('new-post');
+    if (!a) return;
+
+    var repo = a.dataset.repo, branch = a.dataset.branch || 'main';
+    var d = new Date();
+    var p = function (n) { return String(n).padStart(2, '0'); };
+    var ymd = d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+    var hm  = p(d.getHours()) + ':' + p(d.getMinutes());
+
+    // 파일명 slug 는 GitHub 편집기에서 직접 고치도록 비워둡니다.
+    var filename = '_posts/' + ymd + '-.md';
+
+    // 시각을 '지금'으로 넣습니다. 미래 날짜면 Jekyll 이 글을 건너뛰기 때문입니다.
+    var template = [
+      '---',
+      'layout: post',
+      'title: "제목"',
+      'date: ' + ymd + ' ' + hm + ':00 +0900',
+      'categories: [기술, Snowflake]',
+      'tags: [태그1, 태그2]',
+      'summary: "목록에 보일 한 줄 요약"',
+      '---',
+      '',
+      '여기부터 본문.',
+      '',
+      '## 소제목',
+      '',
+      '내용을 씁니다.',
+      ''
+    ].join('\n');
+
+    a.href = 'https://github.com/' + repo + '/new/' + branch +
+             '?filename=' + encodeURIComponent(filename) +
+             '&value=' + encodeURIComponent(template);
+  }
+
+  function init() { buildToc(); addCopyButtons(); setupNewPost(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

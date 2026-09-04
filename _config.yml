@@ -15,6 +15,10 @@ author:
 url: "https://bone0825.github.io"
 baseurl: ""          # username.github.io 저장소면 빈 값 그대로 두세요
 
+# 저장소 (웹에서 글 쓰기/수정 링크에 사용)
+repo: "bone0825/bone0825.github.io"
+branch: "main"
+
 # 헤더/푸터에 표시되는 링크
 social:
   github: "bone0825"

@@ -327,6 +327,23 @@ a.tag-link:hover {
 /* 앵커로 이동했을 때 sticky 헤더에 가리지 않도록 */
 [id^="tag-"], .prose h2[id], .prose h3[id] { scroll-margin-top: 80px; }
 
+/* ---------- 웹에서 글 쓰기/수정 ---------- */
+.new-post-row { margin: 18px 0 0; }
+.edit-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  padding: 16px 0 4px;
+}
+.edit-link {
+  padding: 8px 15px; border-radius: 9px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-soft); font-size: 14px; font-weight: 600;
+}
+.edit-link:hover {
+  text-decoration: none; color: var(--accent);
+  border-color: var(--accent); background: var(--accent-soft);
+}
+.edit-hint { color: var(--text-mute); font-size: 12.5px; }
+
 /* ---------- 카테고리 (대분류 › 소분류) ---------- */
 .cat a { color: inherit; }
 .cat a:hover { color: var(--accent); text-decoration: none; }

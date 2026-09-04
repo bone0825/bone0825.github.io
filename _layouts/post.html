@@ -32,6 +32,16 @@ layout: default
     {{ content }}
   </div>
 
+  {%- if site.repo -%}
+    <div class="edit-row">
+      <a class="edit-link" target="_blank" rel="noopener"
+         href="https://github.com/{{ site.repo }}/edit/{{ site.branch | default: 'main' }}/{{ page.path }}">
+        ✏️ 이 글 수정
+      </a>
+      <span class="edit-hint">GitHub 편집기가 열립니다 · 저장하면 1~2분 뒤 반영</span>
+    </div>
+  {%- endif -%}
+
   <nav class="post-nav">
     {%- if page.previous -%}
       <a class="post-nav-item prev" href="{{ page.previous.url | relative_url }}">

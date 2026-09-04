@@ -43,7 +43,9 @@ Grep 툴로 고객사·계정·실명·개인메일 문자열을 훑는다.
 http://localhost:4000
 
 - Gemfile 을 바꿨으면 bundle install 먼저
-- _config.yml 을 고치면 서버를 재시작해야 반영된다 (livereload 로 안 됨)
+- **_config.yml 을 고치면 서버를 재시작해야 반영된다** (livereload 로 안 됨).
+  2026-09-04 에 repo 키를 추가하고 재시작을 안 해서, 링크가 통째로 안 나오는 걸
+  코드 문제로 오해하고 헤맸다. config 를 건드렸으면 재시작부터 하고 판단할 것
 - 젬은 vendor/bundle 에 로컬 설치돼 있다 (gitignore 됨)
 
 ## 3. 새 글 추가
