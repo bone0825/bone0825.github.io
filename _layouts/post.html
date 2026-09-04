@@ -3,20 +3,30 @@ layout: default
 ---
 <article class="wrap wrap-narrow post">
   <header class="post-head">
+    {%- comment -%} 한글은 공백 기준 단어수가 부정확해서 글자수(분당 500자)로 계산 {%- endcomment -%}
+    {%- assign chars = content | strip_html | strip_newlines | size -%}
+    {%- assign minutes = chars | divided_by: 500 | plus: 1 -%}
     <div class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
       {%- if page.categories.size > 0 -%}
         <span class="dot">·</span><span>{{ page.categories | first }}</span>
       {%- endif -%}
+      <span class="dot">·</span><span>{{ minutes }}분 읽기</span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
     {%- if page.summary -%}<p class="post-summary">{{ page.summary }}</p>{%- endif -%}
     {%- if page.tags.size > 0 -%}
       <div class="tag-row">
-        {%- for tag in page.tags -%}<span class="tag">#{{ tag }}</span>{%- endfor -%}
+        {%- for tag in page.tags -%}
+          <a class="tag tag-link" href="{{ '/tags/' | relative_url }}#tag-{{ tag | slugify }}">#{{ tag }}</a>
+        {%- endfor -%}
       </div>
     {%- endif -%}
   </header>
+
+  <nav class="toc" data-toc aria-label="목차">
+    <p class="toc-title">목차</p>
+  </nav>
 
   <div class="prose">
     {{ content }}

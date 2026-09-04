@@ -304,3 +304,79 @@ a:hover { text-decoration: underline; }
   .post-nav { flex-direction: column; }
   .post-nav-item, .post-nav-item.next { max-width: 100%; text-align: left; margin-left: 0; }
 }
+
+/* ===========================================================
+   추가 기능 — 태그 링크 · 목차 · 코드 복사 버튼
+   =========================================================== */
+
+/* ---------- 클릭 가능한 태그 ---------- */
+a.tag-link { color: var(--text-soft); transition: background .12s ease, color .12s ease; }
+a.tag-link:hover {
+  text-decoration: none;
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.post-card-tags { padding: 0 22px 20px; margin-top: -6px; }
+.tag-cloud { padding-bottom: 20px; }
+.tag-count {
+  margin-left: 6px; padding: 1px 8px; border-radius: 999px;
+  background: var(--bg-alt); border: 1px solid var(--border);
+  color: var(--text-mute); font-size: 12px; font-weight: 600;
+}
+/* 앵커로 이동했을 때 sticky 헤더에 가리지 않도록 */
+[id^="tag-"], .prose h2[id], .prose h3[id] { scroll-margin-top: 80px; }
+
+/* ---------- 목차 ---------- */
+.toc {
+  margin: 0 0 36px; padding: 18px 22px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+.toc-title {
+  margin: 0 0 10px; font-size: 13px; font-weight: 700;
+  color: var(--text-mute); letter-spacing: .04em;
+}
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-item { margin: 0; line-height: 1.55; }
+.toc-item a {
+  display: block; padding: 4px 0;
+  color: var(--text-soft); font-size: 14.5px;
+  border-left: 2px solid transparent; padding-left: 12px;
+}
+.toc-item a:hover { color: var(--accent); text-decoration: none; }
+.toc-item a.active {
+  color: var(--accent); font-weight: 600;
+  border-left-color: var(--accent);
+}
+.toc-h3 a { padding-left: 28px; font-size: 13.5px; }
+
+/* 넓은 화면에선 본문 옆에 고정 */
+@media (min-width: 1240px) {
+  .toc {
+    position: fixed; top: 96px; right: 28px;
+    width: 220px; max-height: 70vh; overflow-y: auto;
+    margin: 0; background: transparent; border: 0;
+    border-left: 1px solid var(--border); border-radius: 0;
+    padding: 0 0 0 16px;
+  }
+}
+
+/* ---------- 코드블록 복사 버튼 ---------- */
+.code-wrap { position: relative; }
+.code-wrap > .highlighter-rouge, .code-wrap > pre { margin-bottom: 20px; }
+.copy-btn {
+  position: absolute; top: 10px; right: 10px;
+  padding: 5px 11px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-soft); font-family: inherit; font-size: 12.5px; font-weight: 600;
+  cursor: pointer; opacity: 0; transition: opacity .14s ease, color .14s ease;
+}
+.code-wrap:hover .copy-btn, .copy-btn:focus-visible { opacity: 1; }
+.copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+.copy-btn.copied { opacity: 1; color: var(--accent); border-color: var(--accent); }
+
+/* 터치 기기는 hover 가 없으므로 항상 표시 */
+@media (hover: none) {
+  .copy-btn { opacity: 1; }
+}

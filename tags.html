@@ -1,0 +1,44 @@
+---
+layout: default
+title: 태그
+permalink: /tags/
+nav_order: 4
+---
+
+<div class="wrap">
+  <header class="page-head">
+    <h1 class="page-title">태그</h1>
+    <p class="page-subtitle">{{ site.tags.size }}개의 태그 · {{ site.posts.size }}개의 글</p>
+  </header>
+
+  {%- if site.tags.size > 0 -%}
+    {%- assign sorted_tags = site.tags | sort -%}
+
+    <div class="filter-row tag-cloud">
+      {%- for tag in sorted_tags -%}
+        <a class="tag tag-link" href="#tag-{{ tag[0] | slugify }}">
+          #{{ tag[0] }} <em>{{ tag[1].size }}</em>
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- for tag in sorted_tags -%}
+      <section class="year-block" id="tag-{{ tag[0] | slugify }}">
+        <h2 class="year-title">#{{ tag[0] }} <span class="tag-count">{{ tag[1].size }}</span></h2>
+        <ul class="post-list">
+          {%- for post in tag[1] -%}
+            <li class="post-list-item">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%y.%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              {%- if post.categories.size > 0 -%}
+                <span class="post-list-cat">{{ post.categories | first }}</span>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </section>
+    {%- endfor -%}
+  {%- else -%}
+    <p class="empty">아직 태그가 없습니다.</p>
+  {%- endif -%}
+</div>

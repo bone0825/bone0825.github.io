@@ -16,10 +16,12 @@
         {{ include.post.excerpt | strip_html | truncate: 120 }}
       {%- endif -%}
     </p>
-    {%- if include.post.tags.size > 0 -%}
-      <div class="tag-row">
-        {%- for tag in include.post.tags -%}<span class="tag">#{{ tag }}</span>{%- endfor -%}
-      </div>
-    {%- endif -%}
   </a>
+  {%- if include.post.tags.size > 0 -%}
+    <div class="tag-row post-card-tags">
+      {%- for tag in include.post.tags -%}
+        <a class="tag tag-link" href="{{ '/tags/' | relative_url }}#tag-{{ tag | slugify }}">#{{ tag }}</a>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
 </article>

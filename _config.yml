@@ -29,6 +29,11 @@ timezone: Asia/Seoul
 markdown: kramdown
 highlighter: rouge
 
+# 글 주소 형식.
+# 기본값은 카테고리를 주소에 넣어서, 한글 카테고리면 /%EA%B8%B0%EB%A1%9D/... 로 깨집니다.
+# 파일명 slug 만 쓰도록 고정 (예: /posts/blog-start/)
+permalink: /posts/:title/
+
 kramdown:
   input: GFM
   syntax_highlighter: rouge

@@ -1,0 +1,96 @@
+/* ===========================================================
+   Rouge 문법 강조 — 라이트/다크 자동 전환
+   토큰 클래스는 Rouge 가 생성하는 것. 임의로 이름 바꾸지 말 것.
+   =========================================================== */
+
+:root {
+  --syn-comment: #7a8798;
+  --syn-keyword: #a626a4;
+  --syn-string:  #128a4a;
+  --syn-number:  #b25000;
+  --syn-func:    #2563eb;
+  --syn-type:    #b8860b;
+  --syn-var:     #d1416a;
+  --syn-punct:   #5b6675;
+  --syn-error:   #d13438;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --syn-comment: #6b7a8d;
+    --syn-keyword: #d99cf5;
+    --syn-string:  #6fd08c;
+    --syn-number:  #f0a868;
+    --syn-func:    #6ba4ff;
+    --syn-type:    #e5c07b;
+    --syn-var:     #f08ca8;
+    --syn-punct:   #97a5b6;
+    --syn-error:   #ff7b72;
+  }
+}
+
+.highlight, .highlighter-rouge .highlight { background: transparent; }
+
+/* 주석 */
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm,
+.highlight .cp, .highlight .c1, .highlight .cs {
+  color: var(--syn-comment); font-style: italic;
+}
+
+/* 키워드 */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn,
+.highlight .kp, .highlight .kr, .highlight .kv {
+  color: var(--syn-keyword); font-weight: 600;
+}
+.highlight .kt { color: var(--syn-type); font-weight: 600; }
+
+/* 문자열 */
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl,
+.highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si,
+.highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss {
+  color: var(--syn-string);
+}
+
+/* 숫자 */
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh,
+.highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: var(--syn-number);
+}
+
+/* 이름 — 함수 / 클래스 / 태그 / 변수 */
+.highlight .nf, .highlight .fm { color: var(--syn-func); font-weight: 600; }
+.highlight .nc, .highlight .nn { color: var(--syn-type); font-weight: 600; }
+.highlight .nt, .highlight .tag { color: var(--syn-keyword); }
+.highlight .na, .highlight .nv, .highlight .vc, .highlight .vg,
+.highlight .vi, .highlight .nb, .highlight .bp {
+  color: var(--syn-var);
+}
+.highlight .no, .highlight .nl, .highlight .nd, .highlight .ni, .highlight .ne {
+  color: var(--syn-type);
+}
+.highlight .n, .highlight .nx, .highlight .py { color: inherit; }
+
+/* 연산자 · 구두점 */
+.highlight .o, .highlight .ow { color: var(--syn-keyword); }
+.highlight .p, .highlight .pi { color: var(--syn-punct); }
+
+/* 오류 */
+.highlight .err {
+  color: var(--syn-error);
+  background: color-mix(in srgb, var(--syn-error) 12%, transparent);
+}
+
+/* diff */
+.highlight .gd { color: var(--syn-error); background: rgba(209,52,56,.10); }
+.highlight .gi { color: var(--syn-string); background: rgba(18,138,74,.10); }
+.highlight .gh { color: var(--syn-func); font-weight: 700; }
+.highlight .gu { color: var(--syn-comment); font-weight: 700; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: 700; }
+
+/* 줄번호를 켤 경우 (_config.yml 에서 line_numbers: true) */
+.highlight .lineno, .highlight .gl {
+  color: var(--syn-comment);
+  -webkit-user-select: none; user-select: none;
+  padding-right: 14px; opacity: .6;
+}
