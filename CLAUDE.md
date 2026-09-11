@@ -60,6 +60,10 @@ front matter 항목: layout(post), title, date, categories, tags, summary
 - title 에 콜론이 있으면 반드시 따옴표로 감싼다
 - 이미지는 assets/img/ 에 넣고 /assets/img/파일명 으로 참조
 - 본문에 Liquid 문법을 문자 그대로 쓰려면 raw 태그로 감싼다
+- **독립 HTML 보고서**(자체 CSS·다크테마·수백 KB)는 마크다운으로 옮기지 말고
+  `assets/reports/slug.html` 에 그대로 두고, 포스트에서 새 탭 링크 + iframe(height 80vh)으로
+  붙인다. front matter 없는 파일은 Jekyll 이 Liquid 처리 없이 복사한다.
+  첫 사례: 2026-09-11 cortex-search-service-deep-dive.html
 
 ### 제목 규칙 — 담백한 기술 명사구
 
